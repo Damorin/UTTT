@@ -29,4 +29,11 @@ public class Game {
 		return board.isValidMove(x, y);
 	}
 
+	public boolean validateCoord(int coord) {
+		if (coord > 0 && coord < 4) {
+			return true;
+		}
+		return false;
+	}
+
 }

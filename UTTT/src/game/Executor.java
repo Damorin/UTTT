@@ -13,14 +13,14 @@ public class Executor {
 
 			System.out.println("Please enter the Y Coordinate");
 			y = scanner.nextInt();
-			while (!validateCoord(y)) {
+			while (!game.validateCoord(y)) {
 				System.out.println("The Y coordinate must be 1, 2 or 3");
 				y = scanner.nextInt();
 			}
 
 			System.out.println("Please enter the X Coordinate");
 			x = scanner.nextInt();
-			while (!validateCoord(x)) {
+			while (!game.validateCoord(x)) {
 				System.out.println("The X coordinate must be 1, 2 or 3");
 				x = scanner.nextInt();
 			}
@@ -36,12 +36,4 @@ public class Executor {
 		}
 		scanner.close();
 	}
-
-	private static boolean validateCoord(int coord) {
-		if (coord > 0 && coord < 4) {
-			return true;
-		}
-		return false;
-	}
-
 }
