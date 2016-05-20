@@ -1,11 +1,12 @@
 package game;
 
 import game.board.Board;
+import game.board.State;
 
 public class Game {
 
 	private Board board = new Board();
-	private int player = 0;
+	private State player = State.Blank;
 
 	public boolean playMove(int x, int y) {
 		selectPlayer();
@@ -13,11 +14,19 @@ public class Game {
 	}
 
 	private void selectPlayer() {
-		if (player == 0 || player == 2) {
-			player = 1;
+		if (player == State.Blank || player == State.X) {
+			player = State.O;
 		} else {
-			player = 2;
+			player = State.X;
 		}
+	}
+
+	public boolean isGameOver() {
+		return !board.isPlayable();
+	}
+
+	public boolean isValidMove(int x, int y) {
+		return board.isValidMove(x, y);
 	}
 
 }
