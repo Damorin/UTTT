@@ -3,9 +3,8 @@ package game.board;
 public class Board {
 
 	private static final int BOARD_SIZE = 3;
-	private static final int MIN_MOVES_TO_WIN = 4;
 
-	private State[][] squares;
+	private STATE[][] squares;
 	private boolean playable;
 	private int moveCount;
 
@@ -16,16 +15,16 @@ public class Board {
 	private void initializeBoard() {
 		playable = true;
 		moveCount = 0;
-		squares = new State[BOARD_SIZE][BOARD_SIZE];
+		squares = new STATE[BOARD_SIZE][BOARD_SIZE];
 		for (int y = 0; y < BOARD_SIZE; y++) {
 			for (int x = 0; x < BOARD_SIZE; x++) {
-				squares[x][y] = State.Blank;
+				squares[x][y] = STATE.Blank;
 			}
 		}
 	}
 
-	public boolean playMove(int x, int y, State player) {
-		if (squares[x][y] == State.Blank) {
+	public boolean playMove(int x, int y, STATE player) {
+		if (squares[x][y] == STATE.Blank) {
 			squares[x][y] = player;
 
 			checkPotentialWinner(x, y, player);
@@ -38,16 +37,16 @@ public class Board {
 		}
 	}
 
-	private void checkPotentialWinner(int x, int y, State player) {
-		State winner = checkWinner(x, y, player);
-		if (winner != State.Blank) {
+	private void checkPotentialWinner(int x, int y, STATE player) {
+		STATE winner = checkWinner(x, y, player);
+		if (winner != STATE.Blank) {
 			playable = false;
 			System.out.println("The winner is " + winner);
 			System.out.println("Unless it was a draw... then it was a draw");
 		}
 	}
 
-	private State checkWinner(int x, int y, State player) {
+	private STATE checkWinner(int x, int y, STATE player) {
 		for (int i = 0; i < BOARD_SIZE; i++) {
 			if (squares[x][i] != player)
 				break;
@@ -88,9 +87,9 @@ public class Board {
 
 		// check draw
 		if (moveCount == (Math.pow(BOARD_SIZE, 2) - 1)) {
-			return State.Draw;
+			return STATE.Draw;
 		}
-		return State.Blank;
+		return STATE.Blank;
 	}
 
 	private void displayBoard() {
@@ -110,7 +109,7 @@ public class Board {
 	}
 
 	public boolean isValidMove(int x, int y) {
-		return squares[x][y] == State.Blank;
+		return squares[x][y] == STATE.Blank;
 	}
 
 }

@@ -11,18 +11,18 @@ public class Executor {
 		while (!game.isGameOver()) {
 			int x, y;
 
-			System.out.println("Please enter the X Coordinate");
-			x = scanner.nextInt();
-			while (!validateCoord(x)) {
-				System.out.println("The x coordinate must be 1, 2 or 3");
-				x = scanner.nextInt();
-			}
-
 			System.out.println("Please enter the Y Coordinate");
 			y = scanner.nextInt();
 			while (!validateCoord(y)) {
-				System.out.println("The y coordinate must be 1, 2 or 3");
+				System.out.println("The Y coordinate must be 1, 2 or 3");
 				y = scanner.nextInt();
+			}
+
+			System.out.println("Please enter the X Coordinate");
+			x = scanner.nextInt();
+			while (!validateCoord(x)) {
+				System.out.println("The X coordinate must be 1, 2 or 3");
+				x = scanner.nextInt();
 			}
 
 			x--;

@@ -1,12 +1,12 @@
 package game;
 
 import game.board.Board;
-import game.board.State;
+import game.board.STATE;
 
 public class Game {
 
 	private Board board = new Board();
-	private State player = State.Blank;
+	private STATE player = STATE.Blank;
 
 	public boolean playMove(int x, int y) {
 		selectPlayer();
@@ -14,10 +14,10 @@ public class Game {
 	}
 
 	private void selectPlayer() {
-		if (player == State.Blank || player == State.X) {
-			player = State.O;
+		if (player == STATE.Blank || player == STATE.X) {
+			player = STATE.O;
 		} else {
-			player = State.X;
+			player = STATE.X;
 		}
 	}
 

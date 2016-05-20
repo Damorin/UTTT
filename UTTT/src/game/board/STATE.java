@@ -1,5 +1,5 @@
 package game.board;
 
-public enum State {
+public enum STATE {
 	Blank, Draw, X, O;
 }
